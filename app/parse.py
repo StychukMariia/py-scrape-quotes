@@ -1,4 +1,5 @@
 import csv
+import time
 from urllib.parse import urljoin
 
 import requests
@@ -44,6 +45,7 @@ def get_quotes() -> list[Quote]:
         quotes, next_url = get_quotes_from_page(current_url)
         all_quotes.extend(quotes)
         current_url = next_url
+        time.sleep(1)
     return all_quotes
 
 
